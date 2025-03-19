@@ -25,6 +25,10 @@
       autoHeight= "false",   
       effect="<?php echo $params->get('sliderEffect'); ?>"
       slides-per-view="<?php echo $params->get('slidesPerView'); ?>"
+      data-slides-per-view="<?php echo (int)($params->get('slidesPerView')); ?>"
+      data-navigation="<?php echo $params->get('navigation') ? 'true' : 'false'; ?>"
+      data-autoplay="<?php echo $params->get('autoplay') ? 'true' : 'false'; ?>"
+      data-autoplay-delay="<?php echo (int)($params->get('autoplayDelay')); ?>">
   >
       <!-- Slides -->
       <!-- articles layout -->
@@ -57,62 +61,6 @@
   </div>
   <?php endif; ?>
 </div>
-
-<script>
-
-// Function to initialize each swiper
-function initializeSwiper(swiperEl, index) {
-  const slidesPerView = <?php echo (int)($params->get('slidesPerView')); ?>;
-
-  
-  const swiperParams = {
-    navigation: <?php echo $params->get('navigation') ? json_encode([
-      'nextEl' => ".custom-button-next", 
-      'prevEl' => ".custom-button-prev",
-    ]) : 'false'; ?>,
-
-    autoplay: <?php echo $params->get('autoplay') ? json_encode([
-      'delay' => (int)($params->get('autoplayDelay')),
-      'disableOnInteraction' => false,
-    ]) : 'false'; ?>,
-
-    breakpoints: slidesPerView > 1 ? {
-
-        0:{
-          slidesPerView: 1, 
-        },
-        768: {
-          slidesPerView: 2, 
-        },
-        
-        1020: {
-          slidesPerView: slidesPerView, 
-        },
-    } : undefined,
-
-    on: {
-      init() {
-      },
-    },
-  };
-  Object.assign(swiperEl, swiperParams);
-  swiperEl.initialize();
-
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  customElements.whenDefined('swiper-container').then(() => {
-    const swiperEl = document.getElementById('slider-<?php echo $module->id; ?>');
-    if (swiperEl) {
-      initializeSwiper(swiperEl);
-    }
-  });
-});
-
-
-
-
-</script>
 
 
 
