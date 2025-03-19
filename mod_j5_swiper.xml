@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+    <name>MOD_J5_SWIPER</name>
+    <author>Bohdan Pyvovarov</author>
+    <creationDate>October 2024</creationDate>
+    <copyright>Copyright (C) 2024 onwards - Bohdan Pyvovarov</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>bogdan21122003@gmail.com</authorEmail>
+    <version>1.0.0</version>
+    <description>MOD_J5_SWIPER_DESC</description>
+
+    <files>
+        <filename>mod_j5_swiper.xml</filename>
+        <filename module="mod_j5_swiper">mod_j5_swiper.php</filename>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+        <folder>assets</folder>
+        <folder>language</folder>
+    
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_j5_swiper.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.mod_j5_swiper.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="useWrapper" type="radio" default="1" label="MOD_J5_SWIPER_WRAPPER" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="sliderContentType" type="radio" default="0" label="MOD_J5_SWIPER_CONTENTTYPE" description="MOD_J5_SWIPER_CONTENTTYPE_DESC">
+                    <option value="2">MOD_J5_SWIPER_CONTENTTYPE_TESTIMONIALS</option>
+                    <option value="1">MOD_J5_SWIPER_CONTENTTYPE_ARTICLES</option>
+                    <option value="0">MOD_J5_SWIPER_CONTENTTYPE_CUSTOM</option>
+                </field>
+                <field name="articlesCount" type="text" default="5" label="MOD_J5_SWIPER_ARTICLES_COUNT" showon="sliderContentType:1"/>
+                <field
+					name="catid"
+					type="category"
+					label="JCATEGORY"
+					extension="com_content"
+					multiple="true"
+					filter="intarray"
+					layout="joomla.form.field.list-fancy-select"
+                    showon="sliderContentType:1"
+				/>
+                <field name="slidesPerView" type="text" default="1" label="MOD_J5_SWIPER_SLIDES_PER_VIEW" description="MOD_J5_SWIPER_SLIDES_PER_VIEW_DESC"/>
+                <field name="sliderEffect" type="list" default="slide" label="MOD_J5_SWIPER_EFFECT" description="MOD_J5_SWIPER_EFFECT_DESC">
+                    <option value="slide">MOD_J5_SWIPER_EFFECT_SLIDE</option>
+                    <option value="fade">MOD_J5_SWIPER_EFFECT_FADE</option>
+                    <option value="cube">MOD_J5_SWIPER_EFFECT_CUBE</option>
+                    <option value="coverflow">MOD_J5_SWIPER_EFFECT_COVERFLOW</option>
+                    <option value="flip">MOD_J5_SWIPER_EFFECT_FLIP</option>
+                </field>
+
+                <field name="slideSpeed" type="text" default="500" label="MOD_J5_SWIPER_SLIDES_SPEED" description="MOD_J5_SWIPER_SLIDES_PER_VIEW_DESC"/>
+                <field name="direction" type="radio" default="0" label="MOD_J5_SWIPER_DIRECTION" description="MOD_J5_SWIPER_DIRECTION_DESC">
+                    <option value="1">MOD_J5_SWIPER_DIRECTION_VERTICAL</option>
+                    <option value="0">MOD_J5_SWIPER_DIRECTION_HORIZONTAL</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="moreoptions" label="MOD_J5_SWIPER_MORE_OPTIONS">
+                <field name="navigation" type="radio" default="1" label="MOD_J5_SWIPER_NAVIGATION" description="MOD_J5_SWIPER_NAVIGATION_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="pagination" type="radio" default="1" label="MOD_J5_SWIPER_PAGINATION" description="MOD_J5_SWIPER_PAGINATION_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="scrollbar" type="radio" default="0" label="MOD_J5_SWIPER_SCROLLBAR" description="MOD_J5_SWIPER_SCROLLBAR_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="loop" type="radio" default="1" label="MOD_J5_SWIPER_LOOP" description="MOD_J5_SWIPER_LOOP_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="autoplay" type="radio" default="0" label="MOD_J5_SWIPER_AUTOPLAY" description="MOD_J5_SWIPER_AUTOPLAY_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                 <field name="autoplayDelay" type="text" default="2500" label="MOD_J5_SWIPER_SLIDES_AUTOPLAY_DELAY" />
+            </fieldset>
+
+            <fieldset name="content" label="Content for Slider">
+                <field name="showCaption" type="radio" default="1" label="Show Caption" description="Show Caption">
+                    <option value="1">Show</option>
+                    <option value="0">Hide</option>
+                </field>
+                <field name="caption-title" type="text" label="Title" description="Enter the Module title." filter="\Joomla\CMS\Component\ComponentHelper::filterText" />
+                <field name="caption-text" type="text" label="Subtitle" description="Enter the Module subtitle." filter="\Joomla\CMS\Component\ComponentHelper::filterText" />
+
+                <field type="spacer" name="spacer1" hr="true" />
+                <field name="link_text1" type="text" label="Slide 1 Link Text" description="Enter the HTML content for the first slide." />
+                <field name="content1" type="editor" label="Slide 1 Content" filter="\Joomla\CMS\Component\ComponentHelper::filterText" description="Enter the HTML content for the first slide." />
+                <field name="image1" type="media" label="Image 1" description="Select an image for the first slide." />
+
+                <field type="spacer" name="spacer2" hr="true" />
+                <field name="link_text2" type="text" label="Slide 2 Link Text" description="Enter the HTML content for the second slide." />
+                <field name="content2" type="editor" label="Slide 2 Content" filter="\Joomla\CMS\Component\ComponentHelper::filterText" description="Enter the HTML content for the second slide." />
+                <field name="image2" type="media" label="Image 2" description="Select an image for the second slide." />
+
+                <field type="spacer" name="spacer3" hr="true" />
+                <field name="link_text3" type="text" label="Slide 3 Link Text" description="Enter the HTML content for the third slide." />
+                <field name="content3" type="editor" label="Slide 3 Content" filter="\Joomla\CMS\Component\ComponentHelper::filterText" description="Enter the HTML content for the third slide." />
+                <field name="image3" type="media" label="Image 3" description="Select an image for the third slide." />
+
+                <field type="spacer" name="spacer4" hr="true" />
+                <field name="link_text4" type="text" label="Slide 4 Link Text" description="Enter the HTML content for the fourth slide." />
+                <field name="content4" type="editor" label="Slide 4 Content" filter="\Joomla\CMS\Component\ComponentHelper::filterText" description="Enter the HTML content for the fourth slide." />
+                <field name="image4" type="media" label="Image 4" description="Select an image for the fourth slide." />
+
+                <field type="spacer" name="spacer5" hr="true" />
+                <field name="link_text5" type="text" label="Slide 5 Link Text" description="Enter the HTML content for the fifth slide." />
+                <field name="content5" type="editor" label="Slide 5 Content" filter="\Joomla\CMS\Component\ComponentHelper::filterText" description="Enter the HTML content for the fifth slide." />
+                <field name="image5" type="media" label="Image 5" description="Select an image for the fifth slide." />
+
+                <field type="spacer" name="spacer6" hr="true" />
+                <field name="link_text6" type="text" label="Slide 6 Link Text" description="Enter the HTML content for the sixth slide." />
+                <field name="content6" type="editor" label="Slide 6 Content" filter="\Joomla\CMS\Component\ComponentHelper::filterText" description="Enter the HTML content for the sixth slide." />
+                <field name="image6" type="media" label="Image 6" description="Select an image for the sixth slide." />
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE</option>
+                    <option value="0">JGLOBAL_DISABLE</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
