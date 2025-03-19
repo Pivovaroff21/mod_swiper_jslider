@@ -29,7 +29,7 @@
       data-navigation="<?php echo $params->get('navigation') ? 'true' : 'false'; ?>"
       data-autoplay="<?php echo $params->get('autoplay') ? 'true' : 'false'; ?>"
       data-autoplay-delay="<?php echo (int)($params->get('autoplayDelay')); ?>">
-  >
+
       <!-- Slides -->
       <!-- articles layout -->
 
