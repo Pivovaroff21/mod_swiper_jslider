@@ -203,7 +203,7 @@ swiper-container::part(button-next) {
   }
 
   .related-slider .article-item__img-wrap{
-
+    overflow: hidden;
     max-height: 183px;
   }
   .related-slider .article-item__img-wrap img{ 
@@ -274,6 +274,7 @@ swiper-container::part(button-next) {
     font-weight: 600;
     line-height: 26px;
     transition:.25s;
+    margin:20px 0px;
   }
 
   .related-slider .article-item__category:hover , .related-slider .article-item__title:hover{
