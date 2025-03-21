@@ -256,10 +256,6 @@ swiper-container::part(button-next) {
     padding:0px;
   }
 
-  .related-slider .wrapper{
-    padding:0px;
-  }
-
   .related-slider .article-item__category{
     color: #404040;
     font-size: 14px;
