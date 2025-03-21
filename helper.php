@@ -90,7 +90,7 @@ public static function getTestimonials(&$params) {
 
             // Set the filters based on the module params
             $articlesModel->setState('list.limit', (int) $moduleParams->get('articlesCount', 5));
-            $articlesModel->setState('filter.featured', $moduleParams->get('show_front', 1) == 1 ? 'show' : 'hide');
+            // $articlesModel->setState('filter.featured', $moduleParams->get('show_front', 1) == 1 ? 'show' : 'hide');
 
             // This module does not use tags data
             $articlesModel->setState('load_tags', false);
@@ -103,6 +103,8 @@ public static function getTestimonials(&$params) {
             $articlesModel->setState('filter.category_id', $moduleParams->get('catid', []));
 
 
+   
+
            
             // Date filter
             $date_filtering = $moduleParams->get('date_filtering', 'off');
@@ -114,13 +116,45 @@ public static function getTestimonials(&$params) {
                 $articlesModel->setState('filter.end_date_range', $moduleParams->get('end_date_range', '9999-12-31 23:59:59'));
                 $articlesModel->setState('filter.relative_date', $moduleParams->get('relative_date', 30));
             }
-
-            // Filter by language
             $articlesModel->setState('filter.language', $app->getLanguageFilter());
 
-            // Ordering
-            $articlesModel->setState('list.ordering', 'a.hits');
-            $articlesModel->setState('list.direction', 'DESC');
+
+            
+            if ($moduleParams->get('articleContentType') == 1) {
+                $currentId = (int) $app->input->get('id', 0);
+                $articlesModel->setState('list.limit', 8);
+                
+                $articlesModel->setState('list.ordering', 'a.id');
+                $articlesModel->setState('list.direction', 'ASC');
+
+                $db = Factory::getContainer()->get('DatabaseDriver');
+                $query = $db->getQuery(true)
+                    ->select('id')
+                    ->from('#__content')
+                    ->where('id > ' . (int) $currentId)
+                    ->where($db->quoteName('state').'='. $db->quote(1))
+                    ->order('id ASC')
+                    ->setLimit(8);
+
+                $db->setQuery($query);
+                $ids = $db->loadColumn();
+
+                if (!empty($ids)) {
+                    $articlesModel->setState('filter.article_id', $ids);
+                }
+            }
+
+            if($moduleParams->get('articleContentType') == 0){
+                $articlesModel->setState('list.ordering', 'a.hits');
+                $articlesModel->setState('list.direction', 'DESC');
+            }else{
+                $articlesModel->setState('list.ordering', 'a.id');
+                $articlesModel->setState('list.direction', 'ASC'); 
+            }
+
+            
+
+            
             
             // Prepare the module output
             $items      = [];

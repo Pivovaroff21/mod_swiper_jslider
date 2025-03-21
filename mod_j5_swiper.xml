@@ -38,6 +38,11 @@
                     <option value="0">MOD_J5_SWIPER_CONTENTTYPE_CUSTOM</option>
                 </field>
                 <field name="articlesCount" type="text" default="5" label="MOD_J5_SWIPER_ARTICLES_COUNT" showon="sliderContentType:1"/>
+
+                <field name="articleContentType" type="radio" default="0" label="MOD_J5_SWIPER_ARTICLECONTENTTYPE" description="MOD_J5_SWIPER_ARTICLECONTENTTYPE_DESC" showon="sliderContentType:1">
+                    <option value="1">MOD_J5_SWIPER_ARTICLECONTENTTYPE_RELATED_ARTICLES</option>
+                    <option value="0">MOD_J5_SWIPER_ARTICLECONTENTTYPE_POPULAR_ARTICLES</option>
+                </field>
                 <field
 					name="catid"
 					type="category"
@@ -49,6 +54,11 @@
                     showon="sliderContentType:1"
 				/>
                 <field name="slidesPerView" type="text" default="1" label="MOD_J5_SWIPER_SLIDES_PER_VIEW" description="MOD_J5_SWIPER_SLIDES_PER_VIEW_DESC"/>
+                
+                <field name="slidePerGroup" type="radio" default="0" label="MOD_J5_SWIPER_SLIDE_PER_GROUP" description="MOD_J5_SWIPER_SLIDE_PER_GROUP_DESC" showon="slidesPerView > 1">
+                    <option value="1">MOD_J5_SWIPER_SLIDE_PER_GROUP_VALUE</option>
+                    <option value="0">1</option>
+                </field>
                 <field name="sliderEffect" type="list" default="slide" label="MOD_J5_SWIPER_EFFECT" description="MOD_J5_SWIPER_EFFECT_DESC">
                     <option value="slide">MOD_J5_SWIPER_EFFECT_SLIDE</option>
                     <option value="fade">MOD_J5_SWIPER_EFFECT_FADE</option>

@@ -27,6 +27,6 @@ if($params->get('sliderContentType') == 0){
 $doc = JFactory::getDocument();
 $doc->addStyleSheet(JURI::base(true) . '/modules/mod_j5_swiper/assets/css/swiper-bundle.min.css');
 $doc->addScript(JURI::base(true) . '/modules/mod_j5_swiper/assets/js/swiper-element-bundle.min.js');
-$doc->addScript(JURI::base(true) . '/modules/mod_j5_swiper/assets/js/swiper-config.js');
+$doc->addScript(JURI::base(true) . '/modules/mod_j5_swiper/assets/js/swiper-config.js?'.$module->id);
 $doc->addStyleSheet(JURI::base(true) . '/modules/mod_j5_swiper/assets/css/swiper-custom.css' );
 require(JModuleHelper::getLayoutPath('mod_j5_swiper'));

@@ -13,6 +13,8 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
 
+
+
 ?>
 
 
@@ -31,15 +33,11 @@ use Joomla\CMS\Router\Route;
                     <a class="article-item__image-link <?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid)); ?>">
                         <img src="<?php echo $src?>" alt="<?php echo $item->title; ?>"/>
                     </a>
-                    <p class="article-item__category" >
-                        <a href="<?php echo Route::_('index.php?option=com_content&view=category&layout=blog&id='.$item->catid);?>"><?php echo $item->category_title; ?> </a>
-                    </p>
                 </div>
+                <!-- <div class="article-item__category" >
+                    <a href="<?php //echo Route::_('index.php?option=com_content&view=category&layout=blog&id='.$item->catid);?>"><?php echo $item->category_title; ?> </a>
+                </div> -->
                 <div class="article-item__text">
- 
-                    <p class="article-item__date">
-                        <?php echo HtmlHelper::date($item->modified, Text::_('DATE_FORMAT_LC3')); ?> 
-                    </p>
                     <h4 class="article-item__title">
                         <a class="<?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid)); ?>">
                             <?php echo $item->title; ?>

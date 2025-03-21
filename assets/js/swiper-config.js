@@ -1,9 +1,12 @@
 function initializeSwiper(t, e) {
-  let i = t.getAttribute("data-slides-per-view"),
+  
+  let i = t.getAttribute("slides-per-view");
+  const id =  t.getAttribute("data-id");
+  const slidePerGroup = t.getAttribute("data-slide-per-group");
     a = {
       navigation: "true" === t.getAttribute("data-navigation") && {
-        nextEl: ".custom-button-next",
-        prevEl: ".custom-button-prev",
+        nextEl: ".custom-button-next-" + id,
+        prevEl: ".custom-button-prev-" + id,
       },
       autoplay: "true" === t.getAttribute("data-autoplay") && {
         delay: parseInt(t.getAttribute("data-autoplay-delay")),
@@ -12,9 +15,9 @@ function initializeSwiper(t, e) {
       breakpoints:
         i > 1
           ? {
-              0: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1020: { slidesPerView: parseInt(i) },
+              0: { slidesPerView: 1, slidesPerGroup: 1 },
+              768: { slidesPerView: 2, slidesPerGroup: slidePerGroup == 0 ? 1 : 2 },
+              1020: { slidesPerView: parseInt(i), slidesPerGroup: slidePerGroup == 0 ? 1 : i },
             }
           : void 0,
       on: { init() {} },
