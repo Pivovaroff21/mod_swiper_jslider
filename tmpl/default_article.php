@@ -26,11 +26,15 @@ use Joomla\CMS\Router\Route;
             if($images->image_fulltext){
                 $src = $images->image_fulltext;
             }
+
+            if(!$src){
+                $src = '/modules/mod_j5_swiper/assets/image-placeholder.jpg';
+            }
         ?>
         <swiper-slide >
             <div class="slide-article-content article-item">
                 <div class="article-item__img-wrap">
-                    <a class="article-item__image-link <?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid)); ?>">
+                    <a class="article-item__image-link <?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid)); ?>">    
                         <img src="<?php echo $src?>" alt="<?php echo $item->title; ?>"/>
                     </a>
                 </div>

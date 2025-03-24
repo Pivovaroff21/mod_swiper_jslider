@@ -59,6 +59,7 @@ swiper-container::part(button-next) {
 .slider{
   position: relative;
   padding:60px 0px; 
+  font-family: 'Rubik-Regular';
 }
 
 

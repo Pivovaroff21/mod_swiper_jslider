@@ -99,11 +99,7 @@ public static function getTestimonials(&$params) {
             $access = !ComponentHelper::getParams('com_content')->get('show_noauth');
             $articlesModel->setState('filter.access', $access);
 
-            // Category filter
-            $articlesModel->setState('filter.category_id', $moduleParams->get('catid', []));
 
-
-   
 
            
             // Date filter
@@ -120,6 +116,14 @@ public static function getTestimonials(&$params) {
 
 
             
+
+            // Category filter
+            $catid = $moduleParams->get('catid', []);
+            if(empty($catid)){ 
+                $catid[] = (int)$app->input->get('catid');
+            }
+            $articlesModel->setState('filter.category_id', $catid);
+
             if ($moduleParams->get('articleContentType') == 1) {
                 $currentId = (int) $app->input->get('id', 0);
                 $articlesModel->setState('list.limit', 8);
@@ -133,6 +137,7 @@ public static function getTestimonials(&$params) {
                     ->from('#__content')
                     ->where('id > ' . (int) $currentId)
                     ->where($db->quoteName('state').'='. $db->quote(1))
+                    ->where('FIND_IN_SET(' . $db->quote(1) . ', ' . $db->quoteName('catid') . ')')
                     ->order('id ASC')
                     ->setLimit(8);
 
@@ -142,6 +147,7 @@ public static function getTestimonials(&$params) {
                 if (!empty($ids)) {
                     $articlesModel->setState('filter.article_id', $ids);
                 }
+                
             }
 
             if($moduleParams->get('articleContentType') == 0){
