@@ -1,0 +1,15 @@
+<updates>
+    <update>
+        <name>Swiper Slider Module</name>
+        <description>A flexible and customizable slider module for Joomla powered by Swiper.js</description>
+        <element>mod_swiper_slider</element>
+        <type>module</type>
+        <version>1.2.1</version>
+        <client>site</client>
+        <downloads>
+            <downloadurl type="full" format="zip">https://dreamview-apps/joom/updateserver/mod_swiper_slider-v1-2-1.zip</downloadurl>
+        </downloads>
+        <infourl>http://localhost/joom/updateserver/mod_hello110.html</infourl>
+        <targetplatform name="joomla" version="((4\.4)|(5\.(0|1|2|3|4|5|6|7|8|9)))" />
+    </update>
+</updates>
