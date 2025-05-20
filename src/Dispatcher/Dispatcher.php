@@ -38,44 +38,27 @@ class Dispatcher implements DispatcherInterface, HelperFactoryAwareInterface
     public function dispatch()
     {
 
-
-
-        $language = $this->app->getLanguage();
-
-        $language->load('mod_swiper_slider', JPATH_BASE . '/modules/mod_swiper_slider');
-      
         $helper = $this->getHelperFactory()->getHelper('SwiperSliderHelper');
         
         $params = new Registry($this->module->params);
 
+       
+        $contentArr = [];
 
+        if($params->get('sliderContentType') == 0){
+          $contentArr = $helper->getContent($params);
+        }else if($params->get('sliderContentType') == 1){
+          $contentArr = $helper->getList($params);
+        }else{
+          $contentArr = $helper->getTestimonials($params);
+        }
 
         require ModuleHelper::getLayoutPath('mod_swiper_slider', $this->module->layout);
 
 
-        //OLD      
-        // if($params->get('moduleclass_sfx')){
-        //   $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
-          
-        // }else{
-          
-        //   $moduleclass_sfx = null;
-        // }
-        // if($params->get('sliderContentType') == 0){
-        //   $contentArr = mod_j5_swiperHelper::getContent($params);
-        // }else if($params->get('sliderContentType') == 1){
-        //   $contentArr = mod_j5_swiperHelper::getList($params);
-        // }else{
-        //   $contentArr = mod_j5_swiperHelper::getTestimonials($params);
-        // }
+
+       
 
 
-
-        // $doc = JFactory::getDocument();
-        // $doc->addStyleSheet(JURI::base(true) . '/modules/mod_j5_swiper/assets/css/swiper-bundle.min.css');
-        // $doc->addScript(JURI::base(true) . '/modules/mod_j5_swiper/assets/js/swiper-element-bundle.min.js');
-        // $doc->addScript(JURI::base(true) . '/modules/mod_j5_swiper/assets/js/swiper-config.js?'.$module->id);
-        // $doc->addStyleSheet(JURI::base(true) . '/modules/mod_j5_swiper/assets/css/swiper-custom.css' );
-        // require(JModuleHelper::getLayoutPath('mod_j5_swiper'));
     }
 }

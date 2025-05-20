@@ -1,14 +1,25 @@
 
 <?php
-
+/**
+ * @package     Joomla.Site
+ * @subpackage  mod_swiper_slider
+ *
+ * @copyright   (C) 2025 Bohdan Pyvovarov All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 defined('_JEXEC') or die;
-$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
 
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa->getRegistry()->addExtensionRegistryFile('mod_swiper_slider');
 $wa->useStyle('mod_swiper_slider.swiper-bundle')
     ->useStyle('mod_swiper_slider.swiper-custom')
     ->useScript('mod_swiper_slider.swiper-config');
 
+
+?>
 <div class="slider <?php echo $moduleclass_sfx ? $moduleclass_sfx : '';?>">
 
 
@@ -47,14 +58,26 @@ $wa->useStyle('mod_swiper_slider.swiper-bundle')
       data-slide-per-group="<?php echo (int)($params->get('slidePerGroup')); ?>">
       <!-- Slides -->
       <!-- articles layout -->
+      <?php
 
-      <?php if($params->get('sliderContentType') === '1'):?>
-        <?php require JModuleHelper::getLayoutPath('mod_j5_swiper', 'default_article'); ?>
-      <?php elseif($params->get('sliderContentType') === '0'):?>
-        <?php require JModuleHelper::getLayoutPath('mod_j5_swiper', 'default_custom'); ?>
-      <?php else:?>
-        <?php require JModuleHelper::getLayoutPath('mod_j5_swiper', 'default_testimonials'); ?>
-      <?php endif;?>
+
+        if($params->get('sliderContentType') === '1'){
+          
+          require ModuleHelper::getLayoutPath('mod_swiper_slider', $params->get('layout', 'default') . '_article'); 
+        }
+      
+        elseif($params->get('sliderContentType') === '0'){
+          require ModuleHelper::getLayoutPath('mod_swiper_slider', $params->get('layout', 'default') . '_custom');
+         
+        }
+          
+        else{
+          require ModuleHelper::getLayoutPath('mod_swiper_slider', $params->get('layout', 'default') . '_testimonials');
+      
+
+        }
+      ?>
+
 
       <!-- Custom Navigation Buttons -->
   </swiper-container>

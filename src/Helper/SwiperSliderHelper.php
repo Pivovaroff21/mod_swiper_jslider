@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @package     Joomla.Site
+ * @subpackage  mod_swiper_slider
+ *
+ * @copyright   (C) 2025 Bohdan Pyvovarov All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace Dreamview\Module\SwiperSlider\Site\Helper;
 
 \defined('_JEXEC') or die;
@@ -27,7 +35,7 @@ class SwiperSliderHelper {
             if($image == null && $htmlContent == null && $linkText == null ){
                 break;
             }
-            $obj = new StdClass();
+            $obj = new \StdClass();
             $obj->link_text = $linkText;
             $obj->content = $htmlContent;
             $obj->image = $image;

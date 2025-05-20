@@ -1,3 +1,16 @@
+<?php 
+
+/**
+ * @package     Joomla.Site
+ * @subpackage  mod_swiper_slider
+ *
+ * @copyright   (C) 2025 Bohdan Pyvovarov All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+ defined('_JEXEC') or die;
+
+ ?>
 
 <?php if (!empty($contentArr)): ?>
     <?php foreach ($contentArr as $item): ?>
@@ -7,11 +20,6 @@
                     <?php echo $item->content; ?>
                 </div>
                 
-                <?php if($params->get('slidesPerView') == 1):?>
-                    <div class="slider-footer-img">
-                        <img src="/templates/travelblog/assets/images/slider-footer.png"/>
-                    </div>
-                <?php endif;?>
             </swiper-slide>
         <?php endif; ?>
     <?php endforeach; ?>

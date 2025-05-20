@@ -2,19 +2,19 @@
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
   "name": "mod_swiper_slider",
   "version": "1.0.0",
-  "description": "Joomla Swiper Slider Module",
+  "description": "Swiper Slider Module",
   "license": "GPL-2.0-or-later",
   "assets": [
     {
       "name": "swiper-element-bundle",
       "type": "script",
-      "uri": "mod_swiper_slider/js/swiper-element-bundle.min.js",
+      "uri": "mod_swiper_slider/swiper-element-bundle.min.js",
       "version": "1.1.0"
     },
     {
       "name": "mod_swiper_slider.swiper-config",
       "type": "script",
-      "uri": "mod_swiper_slider/js/swiper-config.js",
+      "uri": "mod_swiper_slider/swiper-config.js",
       "dependencies": [
         "swiper-element-bundle"
       ],
@@ -26,13 +26,13 @@
     {
       "name": "mod_swiper_slider.swiper-bundle",
       "type": "style",
-      "uri": "mod_swiper_slider/css/swiper-bundle.min.css",
+      "uri": "mod_swiper_slider/swiper-bundle.min.css",
       "version": "1.1.0"
     },
     {
       "name": "mod_swiper_slider.swiper-custom",
       "type": "style",
-      "uri": "mod_swiper_slider/css/swiper-custom.css",
+      "uri": "mod_swiper_slider/swiper-custom.css",
       "version": "1.1.0"
     }
   ]

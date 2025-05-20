@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="module" version="1.0.2" client="site" method="upgrade">
+<extension type="module" version="1.2.0" client="site" method="upgrade">
     <name>MOD_SWIPER_SLIDER</name>
     <author>Bohdan Pyvovarov</author>
     <creationDate>20 May 2025</creationDate>
     <copyright>Copyright (C) 2025 onwards - Bohdan Pyvovarov</copyright>
     <license>GNU General Public License version 2 or later</license>
     <authorEmail>bogdan21122003@gmail.com</authorEmail>
-    <version>1.0.2</version>
+    <version>1.2.0</version>
     <description>MOD_SWIPER_SLIDER_DESC</description>
 
     <namespace path="src">Dreamview\Module\SwiperSlider</namespace>
 
     <files>
-        <filename module="mod_swiper_slider">mod_swiper_slider.xml</filename>
+        <folder module="mod_swiper_slider">services</folder>
         <folder>src</folder>
         <folder>tmpl</folder>
         <folder>language</folder>
+        
+    
     
     </files>
 
@@ -24,6 +26,11 @@
         <folder>js</folder>
         <folder>css</folder>
     </media>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/mod_swiper_slider.ini</language>
+        <language tag="en-GB">en-GB/mod_swiper_slider.sys.ini</language>
+    </languages>
 
 
 
