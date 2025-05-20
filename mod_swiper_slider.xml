@@ -159,10 +159,11 @@
             </fieldset>
         </fields>
     </config>
+    <updateservers>
+        <server type="extension" priority="1" name="Swiper Slider Module Updates">
+            https://dreamview-apps/joom/updateserver/updates.xml
+        </server>
+    </updateservers>
 </extension>
 
-<updateservers>
-    <server type="extension" priority="1" name="Swiper Slider Module Updates">
-        https://dreamview-apps/joom/updateserver/updates.xml
-    </server>
-</updateservers>
+
