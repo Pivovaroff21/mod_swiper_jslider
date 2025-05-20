@@ -1,9 +1,7 @@
 <?php
-
 /**
  * @package     Joomla.Site
  * @subpackage  mod_swiper_slider
- *
  * @copyright   (C) 2025 Bohdan Pyvovarov All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
