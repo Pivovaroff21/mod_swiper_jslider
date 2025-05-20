@@ -1,8 +1,9 @@
 <?php
 
-#@license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+namespace Dreamview\Module\SwiperSlider\Site\Helper;
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
+
 use Joomla\CMS\Access\Access;
 use Joomla\CMS\Application\SiteApplication;
 use Joomla\CMS\Cache\CacheControllerFactoryInterface;
@@ -14,12 +15,11 @@ use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 use Joomla\Component\Content\Site\Model\ArticlesModel;
 use Joomla\Registry\Registry;
-class mod_j5_swiperHelper {
+class SwiperSliderHelper {
     
     public static function getContent(&$params) {
         $contentArr = array();
         $i = 1;
-        $database = JFactory::getDBO();
         while (true) {
             $image = $params->get("image" . $i);
             $htmlContent = $params->get("content" . $i);

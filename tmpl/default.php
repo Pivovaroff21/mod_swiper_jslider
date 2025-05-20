@@ -1,3 +1,14 @@
+
+<?php
+
+
+defined('_JEXEC') or die;
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+
+$wa->useStyle('mod_swiper_slider.swiper-bundle')
+    ->useStyle('mod_swiper_slider.swiper-custom')
+    ->useScript('mod_swiper_slider.swiper-config');
+
 <div class="slider <?php echo $moduleclass_sfx ? $moduleclass_sfx : '';?>">
 
 
