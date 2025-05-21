@@ -7,9 +7,7 @@
  */
 
 defined('_JEXEC') or die;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Router\Route;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 
 
@@ -33,16 +31,13 @@ use Joomla\CMS\Router\Route;
         <swiper-slide >
             <div class="slide-article-content article-item">
                 <div class="article-item__img-wrap">
-                    <a class="article-item__image-link <?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid)); ?>">    
+                    <a class="article-item__image-link <?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo RouteHelper::getArticleRoute($item->id, $item->catid); ?>">    
                         <img src="<?php echo $src?>" alt="<?php echo $item->title; ?>"/>
                     </a>
                 </div>
-                <!-- <div class="article-item__category" >
-                    <a href="<?php //echo Route::_('index.php?option=com_content&view=category&layout=blog&id='.$item->catid);?>"><?php echo $item->category_title; ?> </a>
-                </div> -->
                 <div class="article-item__text">
                     <h4 class="article-item__title">
-                        <a class="<?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid)); ?>">
+                        <a class="<?php echo (isset($item->active) && !empty($item->active)) ? $item->active :''; ?>" href="<?php echo RouteHelper::getArticleRoute($item->id, $item->catid);  ?>">
                             <?php echo $item->title; ?>
                         </a> 
                     </h4>
