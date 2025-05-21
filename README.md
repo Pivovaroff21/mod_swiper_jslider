@@ -37,19 +37,6 @@ In the module settings, you can configure:
 - Product showcase
 - Portfolio preview
 
-## 📁 File Structure
-
-mod_swiper_slider/
-├── tmpl/
-│ └── default.php
-├── helper.php
-├── mod_swiper_slider.php
-├── mod_swiper_slider.xml
-├── css/
-│ └── swiper-custom.css
-└── js/
-└── swiper.min.js
-
 
 ## 🚀 Credits
 
